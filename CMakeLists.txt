@@ -226,7 +226,7 @@ endif()
 if(KOMPUTE_OPT_BUILD_PYTHON)
     if(KOMPUTE_OPT_USE_BUILT_IN_PYBIND11)
         FetchContent_Declare(pybind GIT_REPOSITORY https://github.com/pybind/pybind11.git
-            GIT_TAG v2.9.2
+            GIT_TAG v2.13.6
             GIT_SHALLOW 1) # Source: https://github.com/pybind/pybind11/releases
         FetchContent_MakeAvailable(pybind)
     else()
@@ -263,7 +263,7 @@ endif()
 if(MSVC)
     # MSVC is true when the compiler is msvc(cl) or clang-cl, both receive msvc-like commandline flags
 else()
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -Werror")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -Werror -Wno-shorten-64-to-32")
 endif()
 
 # If glslang is cloned, then SPIRV/GlslangToSpv.h will be used instead of glslang/SPIRV/GlslangToSpv.h
